@@ -113,17 +113,13 @@ function SetMonModel(name)
     end
  end
 
-function PerformRequest(hash)
-    RequestModel(hash, 0)
-    local bacon = 1
-    while not Citizen.InvokeNative(0x1283B8B89DD5D1B6, hash) do
-        Citizen.InvokeNative(0xFA28FE3A6246FC30, hash, 0)
-        bacon = bacon + 1
-        Citizen.Wait(0)
-        if bacon >= 100 then break end
+function PerformRequest(modelHash)
+    RequestModel(modelHash)
+    while not HasModelLoaded(modelHash) do
+        RequestModel(modelHash)
+        Citizen.Wait(100)
     end
 end
-
 
 -- ############# Función para cargar animación. #############
 function loadAnimDict(dict)
