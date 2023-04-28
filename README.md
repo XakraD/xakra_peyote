@@ -1,8 +1,8 @@
 # xakra_peyote
 ## Requirements
-vorp_core
-vorp_inventory
-vorp_metabolism
+- [vorp_core](https://github.com/VORPCORE/vorp-core-lua)
+- [vorp_inventory](https://github.com/VORPCORE/vorp_inventory-lua)
+- [vorp_metabolism](https://github.com/VORPCORE/vorp_metabolism-lua)
 
 ## Description
 This script reads a list of items to transform into a random animal from an editable list, a specific time that can also be edited in the file 'config.lua'. Make various animations throughout the process, trying to be 'realistic', with different animations for men and women. There is a 1/3 chance of dying when consuming the item.
