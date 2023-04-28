@@ -30,7 +30,10 @@ AddEventHandler("xakra_peyote:set_animal", function()
     Wait(11000) -- Espera para pasar a la siguiente animación.
 
     local random = math.random(100)
-    if random <= Config.AnimalPos then -- Si la posbilidad no es 1, se tranfromará
+    if random <= Config.AnimalPos then
+        SetEntityHealth(PlayerPedId(), 0)
+        AnimpostfxStop("PlayerDrunk01")    -- Parar screen borracho.
+    else
         if IsPedMale(PlayerPedId()) then -- Verificamos animacions según el genero.
         
             TaskStartScenarioInPlace(PlayerPedId(), GetHashKey("WORLD_HUMAN_DRUNK_PASSED_OUT_FLOOR"), 0, true, false, false, false) -- Animación tirarse al suelo. 
@@ -43,9 +46,6 @@ AddEventHandler("xakra_peyote:set_animal", function()
             AnimpostfxStop("PlayerDrunk01")    -- Parar screen borracho.
             AnimalTrans()
         end
-    else
-        SetEntityHealth(PlayerPedId(), 0)
-        AnimpostfxStop("PlayerDrunk01")    -- Parar screen borracho.
     end
 
 end)
