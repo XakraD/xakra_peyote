@@ -9,11 +9,11 @@ Config.TimeTrans = 300000
 -- Items list
 Config.AnimalItems = {
     "peyote",
-    -- "peyote2",
+    -- "example",
 }
 
--- Chance to die, 1/X (X is the range of possibilities, ex. 1/2 = 50%).
-Config.AnimalPos = 3
+-- Chance to die, X/100
+Config.AnimalPos = 50
 
 -- List of animals to transform
 Config.AnimalList = {
