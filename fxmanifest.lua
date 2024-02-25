@@ -1,6 +1,5 @@
 author 'Xakra <Discord:Xakra#8145>'
-version '1.1'
-description 'xakra_peyote'
+version '1.2'
 
 fx_version "adamant"
 lua54 "on"

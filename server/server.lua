@@ -1,20 +1,12 @@
+for _, v in pairs(Config.PeyoteEffects) do
+    exports.vorp_inventory:registerUsableItem(v.Item, function(data)
+        exports.vorp_inventory:subItem(data.source, v.Item, 1)
 
-local VorpCore = {}
-
-TriggerEvent("getCore",function(core)
-    VorpCore = core
-end)
-
-
-VorpInv = exports.vorp_inventory:vorp_inventoryApi()
-
-
-for _, item in pairs(Config.AnimalItems) do
-    VorpInv.RegisterUsableItem(item, function(data)
-        VorpInv.subItem(data.source, item, 1)
         TriggerClientEvent("vorpmetabolism:setValue", data.source, "Hunger", 999)
         TriggerClientEvent("vorpmetabolism:setValue", data.source, "Thirst", 999)
-        VorpInv.CloseInv(data.source)   -- Cerrar inventario.
-        TriggerClientEvent("xakra_peyote:set_animal", data.source)
+
+        exports.vorp_inventory:closeInventory(data.source)
+
+        TriggerClientEvent("xakra_peyote:set_animal", data.source, v)
     end)
 end
